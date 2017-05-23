@@ -3,10 +3,6 @@ FROM alpine:3.5
 # Set environment variables
 ARG MURMUR_VERSION=1.2.19
 
-# Copy project files into container
-COPY ./murmur /etc/murmur
-COPY ./script/docker-murmur /usr/bin/docker-murmur
-
 RUN apk --no-cache add \
         pwgen \
         libressl \
@@ -22,8 +18,11 @@ RUN apk --no-cache add \
         https://github.com/mumble-voip/mumble/releases/download/${MURMUR_VERSION}/murmur-static_x86-${MURMUR_VERSION}.tar.bz2 -O - |\
         bzcat -f |\
         tar -x -C /opt -f - \
-    && mv /opt/murmur* /opt/murmur \
-    && chmod 700 /usr/bin/docker-murmur
+    && mv /opt/murmur* /opt/murmur
+
+# Copy project files into container
+COPY ./murmur /etc/murmur
+COPY ./script/docker-murmur /usr/bin/docker-murmur
 
 # Exposed port should always match what is set in /murmur/murmur.ini
 EXPOSE 64738/tcp 64738/udp
