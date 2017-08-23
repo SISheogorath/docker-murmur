@@ -2,6 +2,7 @@ Murmur
 ===
 
 [![Build Status](https://travis-ci.org/SISheogorath/murmur-docker.svg?branch=master)](https://travis-ci.org/SISheogorath/murmur-docker)
+[![MadIRC #Admins](https://img.shields.io/badge/MadIRC-%23Admins-green.svg)](https://webclient.madirc.net/?join=%23Admins)
 
 **Mumble** is a VOIP application which allows users to talk to each other via
 the same server. It uses a client-server architecture, and encrypts all
