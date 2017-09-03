@@ -9,7 +9,7 @@ the same server. It uses a client-server architecture, and encrypts all
 communication to ensure user privacy. **Murmur** is the server that Mumble
 clients to connect to. [Learn More](https://wiki.mumble.info/).
 
-`alpine-murmur` enables you to easily run multiple (lightweight) murmur
+`murmur-docker` enables you to easily run multiple (lightweight) murmur
 instances on the same host.
 
 ## Getting started
@@ -32,13 +32,15 @@ page.
 
 The examples throughout this document assume we are not using a tag. If you
 include a tag number when pulling the image, you will need to append that tag
-number when running the image via `docker run`.
+number when running the image via `docker run`. Further we will assume that you
+run the example commands on the same machine as your mumble client.
 
 ### Create a container
 
 Now that you have the image pulled, it's time to get a container up and running.
 
-```text
+
+```console
 docker run -d \
     -p 64738:64738 \
     --name murmur-001 \
@@ -55,7 +57,8 @@ The following variables can be passed into the container (when you execute
 
 For example:
 
-```text
+
+```console
 docker run -d \
     -p 64738:64738 \
     -e MUMBLE_SERVERPASSWORD='superSecretPasswordHere' \
@@ -153,6 +156,12 @@ $ docker logs murmur-001 2>&1 | grep SUPERUSER_PASSWORD
 ## Updating
 
 To update your image locally, simply run `docker pull sheogorath/murmur-docker`.
+
+## Issues
+
+If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/SISheogorath/murmur-docker/issues).
+
+You can also reach the project maintainers via the `#Admins` IRC channel on [MadIRC](https://madirc.net).
 
 ## License
 
